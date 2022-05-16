@@ -1,8 +1,8 @@
-package com.adamovichdev.movieawards.controler;
+package com.adamovichdev.movieawards.web.controler;
 
-import com.adamovichdev.movieawards.api.authentication.AuthenticationRequest;
 import com.adamovichdev.movieawards.security.AuthenticationService;
 import com.adamovichdev.movieawards.security.jwt.JwtToken;
+import com.adamovichdev.movieawards.web.api.authentication.AuthenticationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

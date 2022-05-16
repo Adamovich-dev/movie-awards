@@ -1,8 +1,8 @@
 package com.adamovichdev.movieawards.security;
 
-import com.adamovichdev.movieawards.api.authentication.AuthenticationRequest;
 import com.adamovichdev.movieawards.security.jwt.JwtToken;
 import com.adamovichdev.movieawards.security.jwt.JwtTokenProvider;
+import com.adamovichdev.movieawards.web.api.authentication.AuthenticationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

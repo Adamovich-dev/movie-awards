@@ -23,7 +23,7 @@ public class MovieAwardEntity extends BaseEntity implements Serializable {
     @Column(name = "is_won")
     private String isWon;
 
-    @OneToMany(mappedBy = "id.movieAwardId", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "id.movieAwardId", fetch = FetchType.LAZY)
     private Set<RatingEntity> grades;
 
     public String getOskarYear() {

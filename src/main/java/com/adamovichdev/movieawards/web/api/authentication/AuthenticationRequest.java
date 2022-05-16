@@ -1,4 +1,4 @@
-package com.adamovichdev.movieawards.api.authentication;
+package com.adamovichdev.movieawards.web.api.authentication;
 
 
 import javax.validation.constraints.NotNull;

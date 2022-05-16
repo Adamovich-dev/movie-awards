@@ -16,7 +16,7 @@ public class RatingEntity implements Serializable {
     private RatingId id;
 
     @Column(name = "grade")
-    @Size(min = 0, max = 10, message = "grade must be from 0 to 10")
+    @Size(min = 1, max = 10, message = "grade must be from 0 to 10")
     private Integer grade;
 
     @Override
