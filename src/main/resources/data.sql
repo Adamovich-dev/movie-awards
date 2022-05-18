@@ -485,10 +485,10 @@ INSERT INTO MOVIE_AWARDS (oskar_year, category, nominee, additional_info, is_won
 ('1928/29 (2nd)','Best Picture','Fox','In Old Arizona','NO'),
 ('1928/29 (2nd)','Best Picture','Metro-Goldwyn-Mayer','The Broadway Melody','YES'),
 ('1928/29 (2nd)','Best Picture','Metro-Goldwyn-Mayer','Hollywood Revue','NO'),
-('1928/29 (2nd)','Best Picture','Paramount Famous Lasky','The Patriot','NO'),
-('1927/28 (1st)','Best Picture','The Caddo Company','The Racket','NO'),
+('1928/29 (2nd)','Best Picture','The Patriot','Paramount Famous Lasky','NO'),
+('1927/28 (1st)','Best Picture','The Racket','The Caddo Company','NO'),
 ('1927/28 (1st)','Best Picture','Fox','7th Heaven','NO'),
-('1927/28 (1st)','Best Picture','Paramount Famous Lasky','Wings','YES');
+('1927/28 (1st)','Best Picture','Wings','Paramount Famous Lasky','YES');
 
 
 INSERT INTO USER_MOVIE_RATING VALUES

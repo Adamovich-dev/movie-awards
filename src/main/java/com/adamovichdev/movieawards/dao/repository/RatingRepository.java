@@ -13,20 +13,20 @@ import org.springframework.stereotype.Repository;
 public interface RatingRepository extends JpaRepository<RatingEntity, RatingId> {
 
     @Query(nativeQuery = true, value = "select grade, user_id as userId, movie_award_id as movieAwardId from USER_MOVIE_RATING where user_id = :userId AND movie_award_id = :titleId")
-    RatingViewProjection getGradeByUserIdAndTitleId(@Param("userId") Integer userId,
-                                                    @Param("titleId") Integer titleId);
+    RatingViewProjection getRatingViewByUserIdAndTitleId(@Param("userId") Long userId,
+                                                         @Param("titleId") Long titleId);
 
     @Modifying
     @Query(nativeQuery = true, value = "insert into USER_MOVIE_RATING values (:titleId, :userId, :grade)")
-    void insertTitleRatingFromUser(@Param("titleId") Integer titleId,
-                                   @Param("userId") Integer userId,
+    void insertTitleRatingFromUser(@Param("titleId") Long titleId,
+                                   @Param("userId") Long userId,
                                    @Param("grade") Integer grade);
 
     @Modifying
     @Query(nativeQuery = true, value = "update USER_MOVIE_RATING r set r.grade = :grade " +
             "where r.user_id = :userId and r.movie_award_id = :titleId")
-    void updateGradeByUserIdAndTitleId(@Param("titleId") Integer titleId,
-                                       @Param("userId") Integer userId,
+    void updateGradeByUserIdAndTitleId(@Param("titleId") Long titleId,
+                                       @Param("userId") Long userId,
                                        @Param("grade") Integer grade);
 
 }

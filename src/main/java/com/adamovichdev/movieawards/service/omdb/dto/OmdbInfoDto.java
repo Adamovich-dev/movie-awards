@@ -16,7 +16,7 @@ public class OmdbInfoDto implements Serializable {
     private String boxOffice;
 
     @JsonProperty("imdbRating")
-    private Double imdbRating;
+    private String imdbRating;
 
     public String getTitle() {
         return title;
@@ -34,11 +34,11 @@ public class OmdbInfoDto implements Serializable {
         this.boxOffice = boxOffice;
     }
 
-    public Double getImdbRating() {
+    public String getImdbRating() {
         return imdbRating;
     }
 
-    public void setImdbRating(Double imdbRating) {
+    public void setImdbRating(String imdbRating) {
         this.imdbRating = imdbRating;
     }
 

@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/movie-award")
-public class MovieController {
+public class MovieAwardController {
 
     private final MovieAwardService movieService;
     private final UpdateMovieAwardFacade movieAwardFacade;
 
     @Autowired
-    public MovieController(MovieAwardService movieService, UpdateMovieAwardFacade movieAwardFacade) {
+    public MovieAwardController(MovieAwardService movieService, UpdateMovieAwardFacade movieAwardFacade) {
         this.movieService = movieService;
         this.movieAwardFacade = movieAwardFacade;
     }
 
     @GetMapping("/short-info-list")
-    public Page<MovieAwardShortViewProjection> getShortMovieInfo(@RequestParam(name = "page", defaultValue = "0") int page,
-                                                                 @RequestParam(name = "size", defaultValue = "10") int size,
-                                                                 @RequestParam(name = "direction", defaultValue = "DESC") Sort.Direction direction,
+    public Page<MovieAwardShortViewProjection> getShortMovieInfoList(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNumber,
+                                                                 @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+                                                                 @RequestParam(name = "sortDirection", defaultValue = "DESC") Sort.Direction sortDirection,
                                                                  @RequestParam(name = "sortFields", defaultValue = "boxOffice") String[] sortFields) {
-        return movieService.getAllMoviesShortInfo(page, size, direction, sortFields);
+        return movieService.getMoviesShortInfoList(pageNumber, pageSize, sortDirection, sortFields);
     }
 
     @PostMapping("/update/from-omdb")
-    public ResponseEntity getAllMovieTitles() {
+    public ResponseEntity updateMovieAwardsFromImdb() {
         movieAwardFacade.updateMovieAwardsFromImdb();
 
         return ResponseEntity.ok().build();

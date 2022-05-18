@@ -6,8 +6,8 @@ import java.util.StringJoiner;
 public class RatingDto implements Serializable {
 
     private Integer grade;
-    private Integer userId;
-    private Integer titleId;
+    private Long userId;
+    private Long titleId;
 
     public Integer getGrade() {
         return grade;
@@ -17,19 +17,19 @@ public class RatingDto implements Serializable {
         this.grade = grade;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getTitleId() {
+    public Long getTitleId() {
         return titleId;
     }
 
-    public void setTitleId(Integer titleId) {
+    public void setTitleId(Long titleId) {
         this.titleId = titleId;
     }
 

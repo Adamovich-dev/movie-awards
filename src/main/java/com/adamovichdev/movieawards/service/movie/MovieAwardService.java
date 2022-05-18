@@ -14,12 +14,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
+
+import static com.adamovichdev.movieawards.Util.LoggerUtil.logRequest;
 
 @Service
 public class MovieAwardService {
 
-    public static final Logger logger = LoggerFactory.getLogger(MovieAwardService.class);
+    private static final Logger logger = LoggerFactory.getLogger(MovieAwardService.class);
 
     private final MovieAwardRepository movieRepository;
 
@@ -29,9 +32,12 @@ public class MovieAwardService {
     }
 
     @Transactional(readOnly = true)
-    public Page<MovieAwardShortViewProjection> getAllMoviesShortInfo(int page, int size, Sort.Direction direction, String[] sortFields) {
-        final Sort sort = Sort.by(direction, sortFields);
-        final PageRequest pageRequest = PageRequest.of(page, size,  sort);
+    public Page<MovieAwardShortViewProjection> getMoviesShortInfoList(int pageNumber, int pageSize, Sort.Direction sortDirection, String[] sortFields) {
+        final String methodName = "getMoviesShortInfoList";
+        logRequest(logger, methodName, pageNumber, pageSize, sortDirection, Arrays.toString(sortFields));
+
+        final Sort sort = Sort.by(sortDirection, sortFields);
+        final PageRequest pageRequest = PageRequest.of(pageNumber, pageSize,  sort);
         return movieRepository.getAllMoviesShortInfo(pageRequest);
     }
 
@@ -42,6 +48,9 @@ public class MovieAwardService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void updateMovieAwardData(MovieAwardInfoForUpdateDto info) {
+        final String methodName = "updateMovieAwardData";
+        logRequest(logger, methodName, info);
+
         final Long boxOffice = info.getBoxOffice();
         final Double imdbRating = info.getImdbRating();
         final Long id = info.getMovieAwardId();

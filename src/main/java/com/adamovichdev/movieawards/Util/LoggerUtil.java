@@ -6,11 +6,11 @@ import java.util.Arrays;
 public final class LoggerUtil {
 
     public static void logRequest(Logger logger, String methodName, Object ...requestParams) {
-        logger.info(String.format("Call method %s with params %s", methodName, Arrays.toString(requestParams)));
+        logger.debug(String.format("Call method %s with params %s", methodName, Arrays.toString(requestParams)));
     }
 
     public static void logResponse(Logger logger, String methodName, Object response) {
-        logger.info(String.format("Call method %s, response %s", methodName, response));
+        logger.debug(String.format("Call method %s, response %s", methodName, response));
     }
 
     public static void logException(Logger logger, String methodName, Exception e) {
