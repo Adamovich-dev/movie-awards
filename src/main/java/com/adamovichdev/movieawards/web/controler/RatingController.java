@@ -1,5 +1,6 @@
 package com.adamovichdev.movieawards.web.controler;
 
+import com.adamovichdev.movieawards.dao.entity.projection.RatingViewProjection;
 import com.adamovichdev.movieawards.service.rating.RatingService;
 import com.adamovichdev.movieawards.web.api.rating.RatingDto;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class RatingController {
     }
 
     @GetMapping("{userId}/by-title")
-    public RatingDto welcome(@PathVariable("userId") final Integer userId,
-                             @RequestParam("titleId") final Integer titleId) {
+    public RatingViewProjection getRatingByUserIdAndTitleId(@PathVariable("userId") final Integer userId,
+                                                            @RequestParam("titleId") final Integer titleId) {
 
         return service.getRatingByUserIdAndTitleId(userId, titleId);
     }

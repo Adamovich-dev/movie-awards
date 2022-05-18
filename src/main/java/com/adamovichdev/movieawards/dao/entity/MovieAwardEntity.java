@@ -23,6 +23,12 @@ public class MovieAwardEntity extends BaseEntity implements Serializable {
     @Column(name = "is_won")
     private String isWon;
 
+    @Column(name = "box_office")
+    private Long boxOffice;
+
+    @Column(name = "imdb_rating")
+    private Double imdbRating;
+
     @OneToMany(mappedBy = "id.movieAwardId", fetch = FetchType.LAZY)
     private Set<RatingEntity> grades;
 
@@ -64,6 +70,22 @@ public class MovieAwardEntity extends BaseEntity implements Serializable {
 
     public void setIsWon(String isWon) {
         this.isWon = isWon;
+    }
+
+    public Long getBoxOffice() {
+        return boxOffice;
+    }
+
+    public void setBoxOffice(Long boxOffice) {
+        this.boxOffice = boxOffice;
+    }
+
+    public Double getImdbRating() {
+        return imdbRating;
+    }
+
+    public void setImdbRating(Double imdbRating) {
+        this.imdbRating = imdbRating;
     }
 
     public Set<RatingEntity> getGrades() {

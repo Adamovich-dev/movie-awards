@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS `MOVIE_AWARDS` (
     nominee         VARCHAR(128)     NOT NULL,
     additional_info VARCHAR(256)   NOT NULL,
     is_won          VARCHAR(3)      NOT NULL,
+    box_office      INTEGER          NULL,
+    imdb_rating       DOUBLE(3)     NULL,
     PRIMARY KEY (id)
 );
 

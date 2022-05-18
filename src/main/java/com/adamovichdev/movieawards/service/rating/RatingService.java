@@ -1,5 +1,6 @@
 package com.adamovichdev.movieawards.service.rating;
 
+import com.adamovichdev.movieawards.dao.entity.projection.RatingViewProjection;
 import com.adamovichdev.movieawards.dao.repository.RatingRepository;
 import com.adamovichdev.movieawards.web.api.rating.RatingDto;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,9 @@ public class RatingService {
         this.repository = repository;
     }
 
-    public RatingDto getRatingByUserIdAndTitleId (Integer userId, Integer titleId) {
-        Integer grage = repository.getGradeByUserIdAndTitleId(userId, titleId);
-
-        RatingDto response = new RatingDto();
-        response.setGrade(grage);
-        response.setTitleId(titleId);
-        response.setUserId(userId);
-
-        return response;
+    @Transactional(readOnly = true)
+    public RatingViewProjection getRatingByUserIdAndTitleId (Integer userId, Integer titleId) {
+        return repository.getGradeByUserIdAndTitleId(userId, titleId);
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
