@@ -18,9 +18,9 @@ public class RatingController {
         this.service = service;
     }
 
-    @GetMapping("{userId}/by-title")
+    @GetMapping("/{userId}/by-title/{movieAwardId}")
     public RatingViewProjection getRatingByUserIdAndTitleId(@PathVariable("userId") final Long userId,
-                                                            @RequestParam("movieAwardId") final Long movieAwardId) {
+                                                            @PathVariable("movieAwardId") final Long movieAwardId) {
 
         return service.getRatingByUserIdAndTitleId(userId, movieAwardId);
     }

@@ -42,14 +42,15 @@ public class UpdateMovieAwardFacadeImpl implements UpdateMovieAwardFacade{
             final Map<Long, String> movieAwardIdAndNomineeMap = getMovieIdAndTitleMap(movieAwardProjectionList);
             final List<MovieAwardInfoForUpdateDto> infoForUpdateList = omdbService.getOmdbDataForUpdateMovieAward(movieAwardIdAndNomineeMap);
             if (isNotEmpty(infoForUpdateList)) {
-                infoForUpdateList.parallelStream()
+                infoForUpdateList
+                        .parallelStream()
                         .filter(Objects::nonNull)
                         .forEach(infoForUpdate -> {
                             try {
                                 movieAwardService.updateMovieAwardData(infoForUpdate);
-                            } catch (Exception e) {
+                            } catch (Exception ignoring) {
                                 //ignoring single fail update from list
-                                logException(logger, methodName, e);
+                                logException(logger, methodName, ignoring);
                             }
                         });
             }
@@ -57,7 +58,8 @@ public class UpdateMovieAwardFacadeImpl implements UpdateMovieAwardFacade{
     }
 
     private Map<Long, String> getMovieIdAndTitleMap(List<MovieAwardOmdbProjection> movieAwardProjectionList) {
-        return movieAwardProjectionList.parallelStream()
+        return movieAwardProjectionList
+                .parallelStream()
                 .collect(Collectors.toMap(MovieAwardOmdbProjection::getId, MovieAwardOmdbProjection::getTitle));
     }
 }

@@ -25,7 +25,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.repository = repository;
     }
 
-    //todo authorities
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         UserEntity user = repository.findByUserName(userName);
