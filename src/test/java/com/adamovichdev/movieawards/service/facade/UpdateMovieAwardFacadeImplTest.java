@@ -2,9 +2,9 @@ package com.adamovichdev.movieawards.service.facade;
 
 import com.adamovichdev.movieawards.dao.entity.projection.MovieAwardOmdbProjection;
 import com.adamovichdev.movieawards.data.MovieAwardOmdbProjectionImpl;
-import com.adamovichdev.movieawards.service.movie.MovieAwardService;
+import com.adamovichdev.movieawards.service.movie.MovieAwardServiceImpl;
 import com.adamovichdev.movieawards.service.movie.dto.MovieAwardInfoForUpdateDto;
-import com.adamovichdev.movieawards.service.omdb.OmdbService;
+import com.adamovichdev.movieawards.service.omdb.OmdbServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,18 +17,18 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UpdateMovieAwardFacadeTest {
+public class UpdateMovieAwardFacadeImplTest {
 
     @Mock
-    private MovieAwardService movieAwardService;
+    private MovieAwardServiceImpl movieAwardService;
     @Mock
-    private OmdbService omdbService;
+    private OmdbServiceImpl omdbService;
 
-    private UpdateMovieAwardFacade facade;
+    private UpdateMovieAwardFacadeImpl facade;
 
     @Before
     public void init() {
-        facade = new UpdateMovieAwardFacade(movieAwardService, omdbService);
+        facade = new UpdateMovieAwardFacadeImpl(movieAwardService, omdbService);
     }
 
     @Test

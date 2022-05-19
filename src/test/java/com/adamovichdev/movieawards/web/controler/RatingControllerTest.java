@@ -2,7 +2,7 @@ package com.adamovichdev.movieawards.web.controler;
 
 import com.adamovichdev.movieawards.dao.entity.projection.RatingViewProjection;
 import com.adamovichdev.movieawards.data.RatingViewProjectionImp;
-import com.adamovichdev.movieawards.service.rating.RatingService;
+import com.adamovichdev.movieawards.service.rating.RatingServiceImpl;
 import com.adamovichdev.movieawards.web.api.rating.RatingDto;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 public class RatingControllerTest {
 
     @Mock
-    private RatingService ratingService;
+    private RatingServiceImpl ratingService;
 
     private RatingController controller;
 

@@ -8,9 +8,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class OmdbDataToDataBaseDataMapperTest {
+public class OmdbDataToDataBaseDataMapperImplTest {
 
-    private final OmdbDataToDataBaseDataMapper mapper = new OmdbDataToDataBaseDataMapper();
+    private final OmdbDataToDataBaseDataMapperImpl mapper = new OmdbDataToDataBaseDataMapperImpl();
 
     @ParameterizedTest
     @MethodSource("getSourceAndExpectedValues")

@@ -20,6 +20,21 @@ public class MovieAwardShortViewProjectionImpl implements MovieAwardShortViewPro
     }
 
     @Override
+    public Double getUsersRating() {
+        return null;
+    }
+
+    @Override
+    public Integer getNumberOfUsersRating() {
+        return null;
+    }
+
+    @Override
+    public Double getImdbRating() {
+        return null;
+    }
+
+    @Override
     public String getIsWon() {
         return null;
     }

@@ -1,34 +1,66 @@
 package com.adamovichdev.movieawards.dao.entity;
 
+import com.adamovichdev.movieawards.dao.entity.enums.OskarCategory;
+import com.adamovichdev.movieawards.dao.entity.enums.Won;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * Data about movie award
+ */
 @Entity
 @Table(name = "MOVIE_AWARDS")
 public class MovieAwardEntity extends BaseEntity implements Serializable {
 
+    /**
+     * The year of oskar
+     */
     @Column(name = "oskar_year")
     private String oskarYear;
 
+    /**
+     * Oskar category
+     */
     @Column(name = "category")
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private OskarCategory category;
 
+    /**
+     * Nominee (movie title)
+     */
     @Column(name = "nominee")
     private String nominee;
 
+    /**
+     * additional information about nominee
+     */
     @Column(name = "additional_info")
     private String additionalInfo;
 
+    /**
+     * Win oskar or not
+     */
     @Column(name = "is_won")
-    private String isWon;
+    @Enumerated(EnumType.STRING)
+    private Won isWon;
 
+    /**
+     * box office
+     */
     @Column(name = "box_office")
     private Long boxOffice;
 
+    /**
+     * Imdb rating
+     */
     @Column(name = "imdb_rating")
     private Double imdbRating;
 
+    /**
+     * User's grade
+     */
     @OneToMany(mappedBy = "id.movieAwardId", fetch = FetchType.LAZY)
     private Set<RatingEntity> grades;
 
@@ -40,11 +72,11 @@ public class MovieAwardEntity extends BaseEntity implements Serializable {
         this.oskarYear = oskarYear;
     }
 
-    public String getCategory() {
+    public OskarCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(OskarCategory category) {
         this.category = category;
     }
 
@@ -64,11 +96,11 @@ public class MovieAwardEntity extends BaseEntity implements Serializable {
         this.additionalInfo = additionalInfo;
     }
 
-    public String getIsWon() {
+    public Won getIsWon() {
         return isWon;
     }
 
-    public void setIsWon(String isWon) {
+    public void setIsWon(Won isWon) {
         this.isWon = isWon;
     }
 

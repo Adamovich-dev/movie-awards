@@ -2,7 +2,7 @@ package com.adamovichdev.movieawards.service.omdb;
 
 import com.adamovichdev.movieawards.service.movie.dto.MovieAwardInfoForUpdateDto;
 import com.adamovichdev.movieawards.service.omdb.dto.OmdbInfoDto;
-import com.adamovichdev.movieawards.service.omdb.mapper.OmdbDataToDataBaseDataMapper;
+import com.adamovichdev.movieawards.service.omdb.mapper.OmdbDataToDataBaseDataMapperImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,19 +23,19 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class OmdbServiceTest {
+public class OmdbServiceImplTest {
 
     @Mock
     private RestTemplate restTemplate;
 
     @Mock
-    private OmdbDataToDataBaseDataMapper omdbMapper;
+    private OmdbDataToDataBaseDataMapperImpl omdbMapper;
 
-    private OmdbService omdbService;
+    private OmdbServiceImpl omdbService;
 
     @Before
     public void init() {
-        omdbService = new OmdbService(omdbMapper, restTemplate);
+        omdbService = new OmdbServiceImpl(omdbMapper, restTemplate);
     }
 
     @Test

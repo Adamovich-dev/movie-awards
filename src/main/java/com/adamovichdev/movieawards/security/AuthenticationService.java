@@ -23,14 +23,12 @@ public class AuthenticationService {
     }
 
     public JwtToken authenticate(AuthenticationRequest authRequest) {
-        //        try {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
         );
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
-//        } catch (Exception ex) {
-//            throw new Exception("inavalid username or password");
-//        }
+
         return new JwtToken(tokenProvider.createToken(authentication));
     }
 }

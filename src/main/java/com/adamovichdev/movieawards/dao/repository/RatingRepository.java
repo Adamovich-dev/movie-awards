@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RatingRepository extends JpaRepository<RatingEntity, RatingId> {
 
-    @Query(nativeQuery = true, value = "select grade, user_id as userId, movie_award_id as movieAwardId from USER_MOVIE_RATING where user_id = :userId AND movie_award_id = :titleId")
+    @Query(nativeQuery = true, value = "select grade, user_id as userId, movie_award_id as movieAwardId " +
+            "from USER_MOVIE_RATING where user_id = :userId AND movie_award_id = :titleId")
     RatingViewProjection getRatingViewByUserIdAndTitleId(@Param("userId") Long userId,
                                                          @Param("titleId") Long titleId);
 

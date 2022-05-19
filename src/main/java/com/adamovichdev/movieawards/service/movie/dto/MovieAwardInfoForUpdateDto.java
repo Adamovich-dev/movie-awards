@@ -3,12 +3,24 @@ package com.adamovichdev.movieawards.service.movie.dto;
 import java.io.Serializable;
 import java.util.StringJoiner;
 
+/**
+ * Dto with data for update MovieAwardEntity
+ */
 public class MovieAwardInfoForUpdateDto implements Serializable {
 
+    /**
+     * MovieAwardEntity id
+     */
     private Long movieAwardId;
 
+    /**
+     * Movie box office
+     */
     private Long boxOffice;
 
+    /**
+     * Omdb rating
+     */
     private Double imdbRating;
 
     public Long getMovieAwardId() {

@@ -14,18 +14,18 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class RatingServiceTest {
+public class RatingServiceImplTest {
 
     @Mock
     private RatingRepository ratingRepository;
 
-    private RatingService ratingService;
+    private RatingServiceImpl ratingService;
 
     private RatingDto rating;
 
     @Before
     public void init() {
-        ratingService = new RatingService(ratingRepository);
+        ratingService = new RatingServiceImpl(ratingRepository);
         rating = new RatingDto();
         rating.setGrade(1);
         rating.setTitleId(1L);

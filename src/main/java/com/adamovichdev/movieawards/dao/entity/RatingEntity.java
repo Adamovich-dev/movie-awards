@@ -8,13 +8,22 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Data about rating
+ */
 @Entity
 @Table(name = "USER_MOVIE_RATING")
 public class RatingEntity implements Serializable {
 
+    /**
+     * Multiple id
+     */
     @EmbeddedId
     private RatingId id;
 
+    /**
+     * User's rating
+     */
     @Column(name = "grade")
     @Size(min = 1, max = 10, message = "grade must be from 0 to 10")
     private Integer grade;

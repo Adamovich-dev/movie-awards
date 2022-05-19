@@ -20,9 +20,9 @@ public class RatingController {
 
     @GetMapping("{userId}/by-title")
     public RatingViewProjection getRatingByUserIdAndTitleId(@PathVariable("userId") final Long userId,
-                                                            @RequestParam("titleId") final Long titleId) {
+                                                            @RequestParam("movieAwardId") final Long movieAwardId) {
 
-        return service.getRatingByUserIdAndTitleId(userId, titleId);
+        return service.getRatingByUserIdAndTitleId(userId, movieAwardId);
     }
 
     @PostMapping("/save")

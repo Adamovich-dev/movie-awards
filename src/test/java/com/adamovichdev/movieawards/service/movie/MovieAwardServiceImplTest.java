@@ -20,16 +20,16 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MovieAwardServiceTest {
+public class MovieAwardServiceImplTest {
 
     @Mock
     private MovieAwardRepository movieRepository;
 
-    private MovieAwardService movieAwardService;
+    private MovieAwardServiceImpl movieAwardService;
 
     @Before
     public void init() {
-        movieAwardService = new MovieAwardService(movieRepository);
+        movieAwardService = new MovieAwardServiceImpl(movieRepository);
     }
 
     @Test

@@ -9,10 +9,16 @@ import java.util.Objects;
 @Embeddable
 public class RatingId implements Serializable {
 
+    /**
+     * Movie award id
+     */
     @ManyToOne
     @JoinColumn (name="movie_award_id")
     private MovieAwardEntity movieAwardId;
 
+    /**
+     * user id
+     */
     @ManyToOne
     @JoinColumn (name="user_id")
     private UserEntity userId;

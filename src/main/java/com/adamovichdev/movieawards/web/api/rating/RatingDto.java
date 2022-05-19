@@ -3,10 +3,24 @@ package com.adamovichdev.movieawards.web.api.rating;
 import java.io.Serializable;
 import java.util.StringJoiner;
 
+/**
+ * Dto with rating data
+ */
 public class RatingDto implements Serializable {
 
+    /**
+     * User's movie rating
+     */
     private Integer grade;
+
+    /**
+     * UserEntity id
+     */
     private Long userId;
+
+    /**
+     * MovieAwardEntity id
+     */
     private Long titleId;
 
     public Integer getGrade() {

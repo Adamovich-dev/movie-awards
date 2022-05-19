@@ -18,10 +18,11 @@ import java.util.List;
 @Repository
 public interface MovieAwardRepository extends JpaRepository<MovieAwardEntity,Long> {
 
-    @Query(nativeQuery = true, value = "select id, nominee as title, oskar_year as oskarYear,is_won as isWon, box_office as boxOffice " +
+    @Query(nativeQuery = true, value = "select id, nominee as title, oskar_year as oskarYear, is_won as isWon, " +
+            "avg(grade) as usersRating, count(grade) as numberOfUsersRating, imdb_rating as imdbRating, box_office as boxOffice " +
             "from movie_awards as a " +
             "left join user_movie_rating as b " +
-            "on a.id = b.movie_award_id group by title, oskarYear,isWon",
+            "on a.id = b.movie_award_id group by id",
     countQuery = "select count(id) from movie_awards")
     Page<MovieAwardShortViewProjection> getAllMoviesShortInfo(Pageable page);
 

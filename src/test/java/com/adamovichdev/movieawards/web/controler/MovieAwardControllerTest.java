@@ -1,8 +1,8 @@
 package com.adamovichdev.movieawards.web.controler;
 
 import com.adamovichdev.movieawards.dao.entity.projection.MovieAwardShortViewProjection;
-import com.adamovichdev.movieawards.service.facade.UpdateMovieAwardFacade;
-import com.adamovichdev.movieawards.service.movie.MovieAwardService;
+import com.adamovichdev.movieawards.service.facade.UpdateMovieAwardFacadeImpl;
+import com.adamovichdev.movieawards.service.movie.MovieAwardServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,10 +24,10 @@ import static org.mockito.Mockito.*;
 public class MovieAwardControllerTest {
 
     @Mock
-    private MovieAwardService movieAwardService;
+    private MovieAwardServiceImpl movieAwardService;
 
     @Mock
-    private UpdateMovieAwardFacade movieAwardFacade;
+    private UpdateMovieAwardFacadeImpl movieAwardFacade;
 
     private MovieAwardController movieController;
 

@@ -8,11 +8,13 @@ public interface MovieAwardShortViewProjection {
 
     String getOskarYear();
 
-//    Double getAvgGrade();
+    Double getUsersRating();
+
+    Integer getNumberOfUsersRating();
+
+    Double getImdbRating();
 
     String getIsWon();
-
-//    Integer getNumberOfRatings();
 
     Long getBoxOffice();
 }

@@ -4,13 +4,22 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * Data about user
+ */
 @Entity
 @Table(name = "USER_TABLE")
 public class UserEntity extends BaseEntity implements Serializable {
 
+    /**
+     * user's name
+     */
     @Column(name = "user_name", length = 32, nullable = false)
     private String userName;
 
+    /**
+     * encrypted password
+     */
     @Column(name = "password", length = 128, nullable = false)
     private String password;
 

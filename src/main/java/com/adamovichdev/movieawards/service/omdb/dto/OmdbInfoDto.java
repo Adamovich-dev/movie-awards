@@ -6,15 +6,27 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.StringJoiner;
 
+/**
+ * Dto with data from OMDB Service
+ */
 public class OmdbInfoDto implements Serializable {
 
+    /**
+     * Movie title
+     */
     @NotBlank
     @JsonProperty("Title")
     private String title;
 
+    /**
+     * Movie box office
+     */
     @JsonProperty("BoxOffice")
     private String boxOffice;
 
+    /**
+     * Movie Imdb rating
+     */
     @JsonProperty("imdbRating")
     private String imdbRating;
 
