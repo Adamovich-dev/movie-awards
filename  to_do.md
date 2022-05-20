@@ -11,7 +11,6 @@ not very important for goals of test-task:
 
 ### todo
 
-- split to modules web/service/dao/api/common or split app to microservices by domain (Movie/User/Rating) and authentication service
 - Logging with AOP or BPP
 - call update data from OMDB API from some scheduler (Once a day/hour for example)
 - It will be match better if request's to OMDB API will sends by omdbId, not tittle
