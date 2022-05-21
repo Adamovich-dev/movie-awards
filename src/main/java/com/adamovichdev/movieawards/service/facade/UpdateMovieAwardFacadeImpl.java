@@ -14,8 +14,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logException;
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logRequest;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logException;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logRequest;
 import static org.hibernate.internal.util.collections.CollectionHelper.isNotEmpty;
 
 @Service
@@ -49,7 +49,6 @@ public class UpdateMovieAwardFacadeImpl implements UpdateMovieAwardFacade{
                             try {
                                 movieAwardService.updateMovieAwardData(infoForUpdate);
                             } catch (Exception ignoring) {
-                                //ignoring single fail update from list
                                 logException(logger, methodName, ignoring);
                             }
                         });

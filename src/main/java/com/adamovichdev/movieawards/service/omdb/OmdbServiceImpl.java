@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logException;
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logRequest;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logException;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logRequest;
 import static org.hibernate.internal.util.collections.CollectionHelper.isNotEmpty;
 
 @Service
@@ -54,15 +54,14 @@ public class OmdbServiceImpl implements OmdbService {
                         try {
                             omdbResponseEntity = restTemplate.getForEntity(omdbUri, OmdbInfoDto.class, apiKey, title);
                         } catch (Exception ignoring) {
-                            //ignoring single fail
                             logException(logger, methodName, ignoring);
+
                             return;
                         }
 
                         final OmdbInfoDto omdbInfo = omdbResponseEntity.getBody();
                         if (omdbInfo != null) {
                             final String omdbTitle = omdbInfo.getTitle();
-                            //it's need, because if we look up "Cries and Whispers" - 1973 year movie, omdb will return "Solace: Video Essay for Cries and Whispers" - 2015 year
                             if (title.equalsIgnoreCase(omdbTitle)) {
                                 final MovieAwardInfoForUpdateDto infoForUpdate = omdbMapper.map(movieAwardId, omdbInfo);
                                 omdbInfoForUpdate.add(infoForUpdate);

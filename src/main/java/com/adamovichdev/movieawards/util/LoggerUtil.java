@@ -1,4 +1,4 @@
-package com.adamovichdev.movieawards.Util;
+package com.adamovichdev.movieawards.util;
 import org.slf4j.Logger;
 
 import java.util.Arrays;

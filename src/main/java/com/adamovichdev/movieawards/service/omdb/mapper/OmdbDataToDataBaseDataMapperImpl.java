@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import static com.adamovichdev.movieawards.Util.LoggerUtil.*;
+import static com.adamovichdev.movieawards.util.LoggerUtil.*;
 import static org.apache.logging.log4j.util.Strings.isNotBlank;
 
 @Service

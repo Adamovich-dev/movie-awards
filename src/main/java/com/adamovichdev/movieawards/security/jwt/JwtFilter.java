@@ -1,6 +1,7 @@
 package com.adamovichdev.movieawards.security.jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.SignatureException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.StringUtils;
@@ -33,9 +34,8 @@ public class JwtFilter extends GenericFilterBean {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
             filterChain.doFilter(servletRequest, servletResponse);
-        } catch (ExpiredJwtException e) {
+        } catch (ExpiredJwtException | SignatureException e) {
 
-//            LOGGER.info("Security token expired, user {} - {}", e.getClaims().getSubject(), e.getMessage());
             ((HttpServletResponse) servletResponse).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
     }

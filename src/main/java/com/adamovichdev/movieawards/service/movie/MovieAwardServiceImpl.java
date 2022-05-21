@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logRequest;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logRequest;
 
 @Service
 public class MovieAwardServiceImpl implements MovieAwardService {

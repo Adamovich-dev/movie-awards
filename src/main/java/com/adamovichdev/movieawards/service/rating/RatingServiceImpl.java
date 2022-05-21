@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.adamovichdev.movieawards.Util.LoggerUtil.logRequest;
+import static com.adamovichdev.movieawards.util.LoggerUtil.logRequest;
 
 @Service
 public class RatingServiceImpl implements RatingService {

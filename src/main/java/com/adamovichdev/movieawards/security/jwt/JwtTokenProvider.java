@@ -4,7 +4,6 @@ import com.adamovichdev.movieawards.security.dto.CustomUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -53,14 +52,9 @@ public class JwtTokenProvider {
     }
 
     public boolean validateToken(String authToken) {
-        try {
             Jwts.parser()
                     .setSigningKey(secretKey)
                     .parseClaimsJws(authToken);
             return true;
-        } catch (SignatureException exception) {
-//            LOGGER.error("SignatureException occurred in  JwtTokenProvider::validateToken. Invalid JWT signature : " + exception.getMessage());
-            return false;
-        }
     }
 }

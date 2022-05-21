@@ -11,6 +11,7 @@ not very important for goals of test-task:
 
 ### todo
 
+- return in response fail tetle list
 - Logging with AOP or BPP
 - call update data from OMDB API from some scheduler (Once a day/hour for example)
 - It will be match better if request's to OMDB API will sends by omdbId, not tittle
